@@ -1,6 +1,6 @@
 import os
 
-file_name = str(input("Enter file name or directory, or just drag the file here : "))
+file_name = str(input("Enter file name or directory, or just drag the file here: "))
 
 try:
     mb = int(input("Enter size to cut in MB: "))

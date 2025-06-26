@@ -4,6 +4,7 @@ import re
 dir = input("Enter the directory of files: ") or os.getcwd()
 files = os.listdir(dir)
 
+name = input("Enter original file name with extension, eg. game.exe: ")
 #TODO sort files correctly
 
 files_filtered = {}
@@ -20,4 +21,4 @@ content = b""
 for i in files_sorted:
     content += open(files_sorted[i], "rb").read()
 
-open("g.blend", "wb").write(content)
+open(name, "wb").write(content)
