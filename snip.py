@@ -22,7 +22,6 @@ if size > file_size:
     while x < size:
         points.append(x) 
         x += file_size
-    print(points)
 
 file = open(file_name, "rb")
 for i, v in enumerate(points):

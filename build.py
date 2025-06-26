@@ -5,7 +5,6 @@ dir = input("Enter the directory of files: ") or os.getcwd()
 files = os.listdir(dir)
 
 name = input("Enter original file name with extension, eg. game.exe: ")
-#TODO sort files correctly
 
 files_filtered = {}
 for i in files:
@@ -16,7 +15,6 @@ for i in files:
             files_filtered.update({int(n): i})
             
 files_sorted = dict(sorted(files_filtered.items()))
-print(files_sorted)
 content = b""
 for i in files_sorted:
     content += open(files_sorted[i], "rb").read()
