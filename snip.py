@@ -1,6 +1,6 @@
 import os
 
-file_name = str(input("Enter file name or directory, eg: game.exe : "))
+file_name = str(input("Enter file name or directory, or just drag the file here : "))
 
 try:
     mb = int(input("Enter size to cut in MB: "))
@@ -32,3 +32,5 @@ for i, v in enumerate(points):
     else:
         num = i-1
         open(name, "wb").write(file.read(points[i] - points[i-1]))
+
+# TODO add a system to remember file name and extension
