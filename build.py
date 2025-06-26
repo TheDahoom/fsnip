@@ -1,11 +1,23 @@
 import os
+import re
 
 dir = input("Enter the directory of files: ") or os.getcwd()
-files = sorted(os.listdir(dir))
+files = os.listdir(dir)
 
-content = b""
+#TODO sort files correctly
+
+files_filtered = {}
 for i in files:
     if ".dfs" in i:
-        content += open(i, "rb").read()
+        digits = re.search(r'\d+', i)
+        if digits:
+            n = digits.group()
+            files_filtered.update({int(n): i})
+            
+files_sorted = dict(sorted(files_filtered.items()))
+print(files_sorted)
+content = b""
+for i in files_sorted:
+    content += open(files_sorted[i], "rb").read()
 
 open("g.blend", "wb").write(content)
