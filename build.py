@@ -1,4 +1,11 @@
-# file to build filen.expandtabs()
+import os
 
-# scan for .dps files
-# write all contents to new file
+dir = input("Enter the directory of files: ") or os.getcwd()
+files = sorted(os.listdir(dir))
+
+content = b""
+for i in files:
+    if ".dfs" in i:
+        content += open(i, "rb").read()
+
+open("g.blend", "wb").write(content)
