@@ -1,7 +1,6 @@
 import os
 
-# file_name = str(input("Enter file name or directory, eg: game.exe : "))
-file_name = "f.blend"
+file_name = str(input("Enter file name or directory, eg: game.exe : "))
 
 try:
     mb = int(input("Enter size to cut in MB: "))
@@ -19,14 +18,17 @@ while True:
 
 if size > file_size:
     x = 0
-    points = [0]
-    while x <= file_size:
+    points = []
+    while x < size:
+        points.append(x) 
         x += file_size
-        points.append(file_size)
-    
     print(points)
 
 file = open(file_name, "rb")
-new_file = open("file1.dfs", "wb")
-new_file.write(file.read(49999 - 24999))
-# print(file.read(49999 - 24999))
+for i, v in enumerate(points):
+    name = "file" + str(i+1) + ".dfs"
+    if i == 0:
+        open(name, "wb").write(file.read(points[1] - points[0]))
+    else:
+        num = i-1
+        open(name, "wb").write(file.read(points[i] - points[i-1]))
